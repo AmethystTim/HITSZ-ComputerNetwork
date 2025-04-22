@@ -32,7 +32,7 @@ void ethernet_in(buf_t *buf) {
 void ethernet_out(buf_t *buf, const uint8_t *mac, net_protocol_t protocol) {
     // TO-DO
     if (buf->len < ETHERNET_MIN_TRANSPORT_UNIT) {
-        // 填充以太网头部
+        // 填充buf尾部
         if (buf_add_padding(buf, ETHERNET_MIN_TRANSPORT_UNIT - buf->len) != 0){
             printf("buf_add_padding error\n");
             return;
